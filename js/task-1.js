@@ -1,33 +1,47 @@
-const getItemsString = function (array) {
-  "use strict";
-  // Write code under this line
-  const index = array.length - 1;
+/* Задача 3-1
+CRUD для свойств объекта
+С - create (создать)
+R - read (читать)
+U - update (обновить)
+D - delete (удалить)
+Напиши скрипт, который, для объекта user, последовательно:
 
-  for (let i = 0; i <= index; i += 1) {
-    array[i] = `${i + 1} - ${array[i]}\n`;
+добавляет поле 'mood' со значением 'happy'
+добавляет поле 'full time' со значением true
+заменяет значение 'hobby' на 'skydiving'
+заменяет значение 'premium' на false
+в переменную message записывает содержимое объекта user:
+для переменной keys присваивает массив свойств объекта, используя метод Object.keys()
+с помощью оператора for...of
+в формате ключ:значение
+c переносом строки ('\n') */
 
-    const itemString = array[i];
-  }
-
-  let result = array.join("");
-  return result;
+let message = "";
+const user = {
+  age: 20,
+  hobby: "html",
+  name: "Mango",
+  premium: true,
 };
 
-console.log(getItemsString(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]));
-/*
-'1 - Mango
-2 - Poly
-3 - Ajax
-4 - Lux
-5 - Jay
-6 - Kong
-'
-*/
+//Write code under this line
+user.mood = "happy";
+user["full time"] = true;
+user.hobby = "skydiving";
+user.premium = false;
 
-//console.log(getItemsString([5, 10, 15]));
+const keys = Object.keys(user);
+// Write code under this line
+for (const key of keys) {
+  message += `${key} : ${user[key]} \n`;
+}
+
+console.log(message);
 /*
-'1 - 5
-2 - 10
-3 - 15
-'
-*/
+'age : 20 
+hobby : skydiving 
+name : Mango 
+premium : false 
+mood : happy 
+"full time" : true 
+' */
